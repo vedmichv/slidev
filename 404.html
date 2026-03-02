@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // SPA redirect for GitHub Pages
+    // Preserves the path so the SPA router can handle it
+    var path = window.location.pathname;
+    var segments = path.split('/');
+    // Find the presentation subfolder (e.g., slurm-ai-demo)
+    // and redirect to its index.html with hash-based route
+    if (segments.length >= 3) {
+      // /slidev/slurm-ai-demo/5 → /slidev/slurm-ai-demo/?p=/5
+      var base = '/' + segments[1] + '/' + segments[2] + '/';
+      var rest = segments.slice(3).join('/');
+      if (rest) {
+        window.location.replace(base + '?p=/' + rest);
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
